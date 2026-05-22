@@ -16,6 +16,9 @@ type SearchBoxProps = {
 
 export function SearchBox({ ports, compact = false, defaultFrom, defaultTo }: SearchBoxProps) {
   const router = useRouter();
+  const gridClass = compact
+    ? "grid gap-3 md:grid-cols-2 xl:grid-cols-4"
+    : "grid gap-4 sm:grid-cols-2";
 
   function onSubmit(formData: FormData) {
     const params = new URLSearchParams();
@@ -31,11 +34,11 @@ export function SearchBox({ ports, compact = false, defaultFrom, defaultTo }: Se
       action={onSubmit}
       className="rounded-lg border border-ink/10 bg-white/95 p-4 shadow-soft md:p-6"
     >
-      <div className={compact ? "grid gap-3 md:grid-cols-4" : "grid gap-4 md:grid-cols-2 lg:grid-cols-4"}>
+      <div className={gridClass}>
         <PortSelector name="from" label="Depart" placeholder="Marseille, Sete, Algesiras..." ports={ports} defaultValue={defaultFrom} />
         <PortSelector name="to" label="Arrivee" placeholder="Tanger Med, Nador, Alger..." ports={ports} defaultValue={defaultTo} />
         <DateSelector name="departureDate" label="Date aller" required />
-        <DateSelector name="returnDate" label="Date retour optionnelle" />
+        <DateSelector name="returnDate" label="Retour optionnel" />
         <label className="block">
           <span className="text-sm font-medium text-ink/70">Passagers</span>
           <input
@@ -49,10 +52,10 @@ export function SearchBox({ ports, compact = false, defaultFrom, defaultTo }: Se
         <VehicleSelector defaultValue={"car" as VehicleType} />
         <button
           type="submit"
-          className="focus-ring flex h-12 items-center justify-center gap-2 rounded-lg bg-coral px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#df5f3d] md:mt-7"
+          className="focus-ring flex min-h-12 items-center justify-center gap-2 rounded-lg bg-coral px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#df5f3d] sm:col-span-2 xl:col-span-2"
         >
           <Search className="h-4 w-4" aria-hidden="true" />
-          Comparer les traversees
+          <span className="whitespace-nowrap">Comparer les traversees</span>
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </button>
       </div>
