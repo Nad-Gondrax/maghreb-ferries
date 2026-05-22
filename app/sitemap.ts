@@ -28,6 +28,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ? 0.9
         : 0.75
     })),
+    ...routes.map((route) => ({
+      url: absoluteUrl(`/bateau/${route.slug}`),
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: ["marseille-tanger-med", "sete-nador", "algesiras-tanger-med"].includes(route.slug)
+        ? 0.9
+        : 0.72
+    })),
     ...guideArticles.map((guide) => ({
       url: absoluteUrl(guide.href),
       lastModified: now,

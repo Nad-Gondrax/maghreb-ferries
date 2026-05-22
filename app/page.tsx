@@ -12,14 +12,14 @@ import { guideArticles } from "@/lib/guides";
 import { absoluteUrl, canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Ferry Maroc, Algerie, Tunisie avec voiture",
+  title: "Bateau et ferry Maroc, Algerie, Tunisie avec voiture",
   description:
-    "Comparez les ferries vers le Maghreb depuis France, Espagne et Italie : Maroc, Algerie, Tunisie, voiture, famille, bagages et alertes prix.",
+    "Comparez les bateaux et ferries vers le Maghreb depuis France, Espagne et Italie : Maroc, Algerie, Tunisie, voiture, famille, bagages et alertes prix.",
   ...canonical("/"),
   openGraph: {
-    title: "Maghreb Ferries - Comparer les ferries vers le Maghreb",
+    title: "Maghreb Ferries - Comparer les bateaux et ferries vers le Maghreb",
     description:
-      "Assistant ferry pour choisir la bonne route vers Maroc, Algerie ou Tunisie avec voiture et enfants.",
+      "Assistant bateau et ferry pour choisir la bonne route vers Maroc, Algerie ou Tunisie avec voiture et enfants.",
     url: absoluteUrl("/")
   }
 };
@@ -38,7 +38,7 @@ export default async function HomePage() {
             Comparez la bonne traversee, pas seulement le prix.
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-ink/70">
-            Maghreb Ferries aide les familles a comparer les ferries vers le Maroc, l'Algerie et la Tunisie avec voiture,
+            Maghreb Ferries aide les familles a comparer les bateaux et ferries vers le Maroc, l'Algerie et la Tunisie avec voiture,
             bagages, enfants, trajets d'ete et options de confort selon la traversee.
           </p>
           <div className="mt-8">
@@ -88,7 +88,7 @@ export default async function HomePage() {
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-petrol">Decision utile</p>
           <h2 className="mt-3 text-3xl font-semibold text-ink">Trouvez la meilleure route, pas seulement le prix</h2>
           <p className="mt-4 text-base leading-7 text-ink/70">
-            Un billet ferry cher doit etre juge avec la conduite, les horaires, l'arrivee, les besoins des enfants et les options de confort disponibles apres le choix de la traversee.
+            Un billet bateau cher doit etre juge avec la conduite, les horaires, l'arrivee, les besoins des enfants et les options de confort disponibles apres le choix de la traversee.
             Le moteur MVP calcule des scores simples prix, confort et famille.
           </p>
         </div>

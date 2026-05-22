@@ -8,26 +8,26 @@ import { siteName, siteUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Maghreb Ferries - Ferries Maroc, Algerie, Tunisie avec voiture",
+    default: "Maghreb Ferries - Bateau Maroc, Algerie, Tunisie avec voiture",
     template: `%s | ${siteName}`
   },
   description:
-    "Comparez les ferries vers le Maroc, l'Algerie et la Tunisie avec voiture, bagages, conseils famille et alertes prix.",
+    "Comparez les bateaux et ferries vers le Maroc, l'Algerie et la Tunisie avec voiture, bagages, conseils famille et alertes prix.",
   applicationName: siteName,
   openGraph: {
     type: "website",
     locale: "fr_FR",
     siteName,
-    title: "Maghreb Ferries - Ferries Maroc, Algerie, Tunisie avec voiture",
+    title: "Maghreb Ferries - Bateau Maroc, Algerie, Tunisie avec voiture",
     description:
-      "Assistant ferry pour la diaspora Maghreb : routes, voiture, famille, ete, prix et partenaires de reservation.",
+      "Assistant bateau et ferry pour la diaspora Maghreb : routes, voiture, famille, ete, prix et partenaires de reservation.",
     url: siteUrl
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maghreb Ferries - Ferries Maroc, Algerie, Tunisie",
+    title: "Maghreb Ferries - Bateau Maroc, Algerie, Tunisie",
     description:
-      "Comparez les routes ferry utiles pour le Maghreb avec voiture, enfants et bagages."
+      "Comparez les routes bateau et ferry utiles pour le Maghreb avec voiture, enfants et bagages."
   }
 };
 

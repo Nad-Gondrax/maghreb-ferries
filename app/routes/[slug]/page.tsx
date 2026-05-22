@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!route) return {};
   const from = getPort(route.fromPortId);
   const to = getPort(route.toPortId);
-  const title = `Ferry ${from?.city} ${to?.city} : prix, duree et voiture`;
-  const description = `${route.summary} Duree, voiture, options de confort, conseils famille et alternatives.`;
+  const title = `Ferry bateau ${from?.city} ${to?.city} : prix, duree et voiture`;
+  const description = `${route.summary} Duree, voiture, options de confort, conseils famille et alternatives pour le bateau.`;
   return {
     title,
     description,
@@ -57,7 +57,7 @@ export default async function RoutePage({ params }: PageProps) {
         <article className="space-y-10">
           <header className="rounded-lg border border-ink/10 bg-white p-6 shadow-soft md:p-8">
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-petrol">Guide route ferry</p>
-            <h1 className="mt-3 text-4xl font-semibold tracking-tight text-ink md:text-5xl">Ferry {label}</h1>
+            <h1 className="mt-3 text-4xl font-semibold tracking-tight text-ink md:text-5xl">Ferry / bateau {label}</h1>
             <p className="mt-4 max-w-3xl text-base leading-7 text-ink/70">{route.summary}</p>
             <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               <div className="rounded-lg bg-mist p-4">
