@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLink, ShieldCheck } from "lucide-react";
+import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Transparence affiliation",
-  description: "Informations sur les liens affilies, les partenaires de reservation et le role de Maghreb Ferries."
+  description: "Informations sur les liens affilies, les partenaires de reservation et le role de Maghreb Ferries.",
+  ...canonical("/transparence-affiliation")
 };
 
 export default function TransparencyPage() {

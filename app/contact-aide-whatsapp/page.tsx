@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { MessageCircle, Mail, HelpCircle } from "lucide-react";
 import { LeadCaptureCard } from "@/components/LeadCaptureCard";
+import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contact et aide WhatsApp",
-  description: "Aide mockee Maghreb Ferries pour comparer les ferries vers le Maghreb sans vendre directement de billets."
+  description: "Aide mockee Maghreb Ferries pour comparer les ferries vers le Maghreb sans vendre directement de billets.",
+  ...canonical("/contact-aide-whatsapp")
 };
 
 export default function ContactPage() {

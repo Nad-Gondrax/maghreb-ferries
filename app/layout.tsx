@@ -3,15 +3,32 @@ import Link from "next/link";
 import { Ship } from "lucide-react";
 import "./globals.css";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
+import { siteName, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://maghreb-ferries.example"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Maghreb Ferries - Comparer les ferries vers Maroc, Algerie, Tunisie",
-    template: "%s | Maghreb Ferries"
+    default: "Maghreb Ferries - Ferries Maroc, Algerie, Tunisie avec voiture",
+    template: `%s | ${siteName}`
   },
   description:
-    "Assistant de voyage bateau pour comparer les ferries vers le Maghreb avec voiture, cabine, bagages et conseils famille."
+    "Comparez les ferries vers le Maroc, l'Algerie et la Tunisie avec voiture, bagages, conseils famille et alertes prix.",
+  applicationName: siteName,
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    siteName,
+    title: "Maghreb Ferries - Ferries Maroc, Algerie, Tunisie avec voiture",
+    description:
+      "Assistant ferry pour la diaspora Maghreb : routes, voiture, famille, ete, prix et partenaires de reservation.",
+    url: siteUrl
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Maghreb Ferries - Ferries Maroc, Algerie, Tunisie",
+    description:
+      "Comparez les routes ferry utiles pour le Maghreb avec voiture, enfants et bagages."
+  }
 };
 
 const nav = [

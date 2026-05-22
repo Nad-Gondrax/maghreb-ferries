@@ -2,10 +2,18 @@ import type { Metadata } from "next";
 import { GuideCard } from "@/components/guides/GuideCard";
 import { LeadCaptureCard } from "@/components/LeadCaptureCard";
 import { guideArticles } from "@/lib/guides";
+import { absoluteUrl, canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Guides pratiques ferry Maghreb",
-  description: "Conseils pour choisir une route ferry vers le Maroc, l'Algerie ou la Tunisie avec voiture, cabine et enfants."
+  description: "Conseils pour choisir une route ferry vers le Maroc, l'Algerie ou la Tunisie avec voiture, cabine et enfants.",
+  ...canonical("/guides"),
+  openGraph: {
+    title: "Guides pratiques ferry Maghreb",
+    description:
+      "Guides pour choisir une traversee vers le Maroc, l'Algerie ou la Tunisie avec voiture, famille et bagages.",
+    url: absoluteUrl("/guides")
+  }
 };
 
 export default function GuidesPage() {

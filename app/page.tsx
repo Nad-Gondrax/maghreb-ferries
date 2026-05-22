@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, MapPinned, RouteIcon } from "lucide-react";
 import { GuideCard } from "@/components/guides/GuideCard";
@@ -8,6 +9,20 @@ import { TrustBanner } from "@/components/TrustBanner";
 import { ferryProvider } from "@/lib/ferry/provider";
 import { routes } from "@/lib/ferry/mockData";
 import { guideArticles } from "@/lib/guides";
+import { absoluteUrl, canonical } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: "Ferry Maroc, Algerie, Tunisie avec voiture",
+  description:
+    "Comparez les ferries vers le Maghreb depuis France, Espagne et Italie : Maroc, Algerie, Tunisie, voiture, famille, bagages et alertes prix.",
+  ...canonical("/"),
+  openGraph: {
+    title: "Maghreb Ferries - Comparer les ferries vers le Maghreb",
+    description:
+      "Assistant ferry pour choisir la bonne route vers Maroc, Algerie ou Tunisie avec voiture et enfants.",
+    url: absoluteUrl("/")
+  }
+};
 
 export default async function HomePage() {
   const ports = await ferryProvider.getPorts();

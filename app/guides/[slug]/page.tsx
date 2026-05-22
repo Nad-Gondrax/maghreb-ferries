@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { FAQ } from "@/components/FAQ";
 import { LeadCaptureCard } from "@/components/LeadCaptureCard";
 import { getGuide, guideArticles } from "@/lib/guides";
+import { absoluteUrl, canonical } from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -20,7 +21,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!guide) return {};
   return {
     title: guide.title,
-    description: guide.excerpt
+    description: guide.excerpt,
+    ...canonical(guide.href),
+    openGraph: {
+      title: guide.title,
+      description: guide.excerpt,
+      url: absoluteUrl(guide.href),
+      type: "article"
+    }
   };
 }
 

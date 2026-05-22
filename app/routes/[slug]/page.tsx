@@ -9,6 +9,7 @@ import { buildAffiliateUrl } from "@/lib/affiliate/buildAffiliateUrl";
 import { routes } from "@/lib/ferry/mockData";
 import { ferryProvider, getOperator, getPort, getRouteLabel } from "@/lib/ferry/provider";
 import { getRouteAlternatives } from "@/lib/ferry/recommendations";
+import { absoluteUrl, canonical } from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -24,9 +25,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!route) return {};
   const from = getPort(route.fromPortId);
   const to = getPort(route.toPortId);
+  const title = `Ferry ${from?.city} ${to?.city} : prix, duree et voiture`;
+  const description = `${route.summary} Duree, voiture, options de confort, conseils famille et alternatives.`;
   return {
-    title: `Ferry ${from?.city} ${to?.city}`,
-    description: `${route.summary} Duree, voiture, options de confort, conseils famille et alternatives.`
+    title,
+    description,
+    ...canonical(`/routes/${route.slug}`),
+    openGraph: {
+      title,
+      description,
+      url: absoluteUrl(`/routes/${route.slug}`),
+      type: "article"
+    }
   };
 }
 

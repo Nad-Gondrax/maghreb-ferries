@@ -7,10 +7,16 @@ import { SearchBox } from "@/components/search/SearchBox";
 import { ferryProvider, getPort, getRoute } from "@/lib/ferry/provider";
 import { getRecommendations } from "@/lib/ferry/recommendations";
 import type { SearchQuery, VehicleType } from "@/lib/ferry/types";
+import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Recherche ferry Maroc, Algerie, Tunisie",
-  description: "Comparez des traversees ferry mockees avec voiture, cabine, prix estime et scores famille."
+  description: "Comparez des traversees ferry mockees avec voiture, prix estime et scores famille.",
+  robots: {
+    index: false,
+    follow: true
+  },
+  ...canonical("/recherche")
 };
 
 type PageProps = {
