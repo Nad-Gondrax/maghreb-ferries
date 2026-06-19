@@ -38,6 +38,12 @@ const nav = [
   { href: "/transparence-affiliation", label: "Transparence" }
 ];
 
+const destinationNav = [
+  { href: "/bateau-maroc", label: "Bateau Maroc" },
+  { href: "/bateau-algerie", label: "Bateau Algerie" },
+  { href: "/bateau-tunisie", label: "Bateau Tunisie" }
+];
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
@@ -74,8 +80,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 MVP avec donnees mockees pour aider les familles de la diaspora a choisir une traversee vers le Maghreb.
               </p>
             </div>
-            <div className="flex flex-wrap gap-4 text-sm font-medium text-ink/65">
-              {nav.map((item) => (
+            <div className="flex max-w-lg flex-wrap gap-4 text-sm font-medium text-ink/65">
+              {[...destinationNav, ...nav].map((item) => (
                 <Link key={item.href} href={item.href} className="hover:text-ink">
                   {item.label}
                 </Link>

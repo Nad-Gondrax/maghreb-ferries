@@ -55,11 +55,11 @@ export default async function HomePage() {
           </div>
           <div className="mt-4 grid gap-3">
             {[
-              ["Maroc", "Tanger Med, Nador, Tanger Ville"],
-              ["Algerie", "Alger, Oran, Bejaia, Mostaganem"],
-              ["Tunisie", "Tunis, Zarzis"]
-            ].map(([title, text]) => (
-              <Link key={title} href={`/recherche?to=${title}`} className="rounded-lg border border-ink/10 bg-white p-4 hover:border-petrol/30">
+              ["Maroc", "Tanger Med, Nador, Tanger Ville", "/bateau-maroc"],
+              ["Algerie", "Alger, Oran, Bejaia, Mostaganem", "/bateau-algerie"],
+              ["Tunisie", "Tunis, Zarzis", "/bateau-tunisie"]
+            ].map(([title, text, href]) => (
+              <Link key={title} href={href} className="rounded-lg border border-ink/10 bg-white p-4 hover:border-petrol/30">
                 <span className="text-lg font-semibold text-ink">{title}</span>
                 <p className="mt-1 text-sm text-ink/60">{text}</p>
               </Link>
@@ -71,13 +71,16 @@ export default async function HomePage() {
       <section className="container-page py-8">
         <div className="grid gap-5 md:grid-cols-3">
           {[
-            ["Maroc", "Marseille, Sete, Algesiras, Almeria et Barcelone vers Tanger Med ou Nador."],
-            ["Algerie", "Routes directes depuis Marseille et alternatives Espagne vers Oran ou Mostaganem."],
-            ["Tunisie", "Marseille, Genes ou Civitavecchia vers Tunis et Zarzis."]
-          ].map(([title, text]) => (
+            ["Maroc", "Marseille, Sete, Algesiras, Almeria et Barcelone vers Tanger Med ou Nador.", "/bateau-maroc"],
+            ["Algerie", "Routes directes depuis Marseille et alternatives Espagne vers Oran ou Mostaganem.", "/bateau-algerie"],
+            ["Tunisie", "Marseille, Genes ou Civitavecchia vers Tunis et Zarzis.", "/bateau-tunisie"]
+          ].map(([title, text, href]) => (
             <article key={title} className="rounded-lg border border-ink/10 bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-semibold text-ink">{title}</h2>
               <p className="mt-3 text-sm leading-6 text-ink/65">{text}</p>
+              <Link href={href} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-coral">
+                Voir les bateaux <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
             </article>
           ))}
         </div>

@@ -5,6 +5,9 @@ import { absoluteUrl } from "@/lib/seo";
 
 const staticPaths = [
   "/",
+  "/bateau-maroc",
+  "/bateau-algerie",
+  "/bateau-tunisie",
   "/guides",
   "/contact-aide-whatsapp",
   "/transparence-affiliation"
@@ -18,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: absoluteUrl(path),
       lastModified: now,
       changeFrequency: "weekly" as const,
-      priority: path === "/" ? 1 : 0.7
+      priority: path === "/" ? 1 : path.startsWith("/bateau-") ? 0.95 : 0.7
     })),
     ...routes.map((route) => ({
       url: absoluteUrl(`/routes/${route.slug}`),
