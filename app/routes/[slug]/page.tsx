@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, BedDouble, CarFront, Clock, MapPin } from "lucide-react";
 import { FAQ } from "@/components/FAQ";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { LeadCaptureCard } from "@/components/LeadCaptureCard";
 import { RouteCard } from "@/components/routes/RouteCard";
 import { buildAffiliateUrl } from "@/lib/affiliate/buildAffiliateUrl";
@@ -50,9 +51,13 @@ export default async function RoutePage({ params }: PageProps) {
   const operators = route.operatorIds.map(getOperator).filter(Boolean);
   const alternatives = getRouteAlternatives(route.id);
   const label = getRouteLabel(route);
+  const countryPage = to?.country === "Maroc" ? "/bateau-maroc" : to?.country === "Algerie" ? "/bateau-algerie" : "/bateau-tunisie";
 
   return (
     <div className="container-page py-8 md:py-12">
+      <div className="-mt-8 mb-6 md:-mt-12">
+        <Breadcrumbs items={[{ label: "Accueil", href: "/" }, { label: `Bateau ${to?.country}`, href: countryPage }, { label }]} />
+      </div>
       <div className="grid gap-8 lg:grid-cols-[1fr_360px] lg:items-start">
         <article className="space-y-10">
           <header className="rounded-lg border border-ink/10 bg-white p-6 shadow-soft md:p-8">

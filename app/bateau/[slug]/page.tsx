@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, BedDouble, CarFront, Clock, Ship } from "lucide-react";
 import { FAQ } from "@/components/FAQ";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { LeadCaptureCard } from "@/components/LeadCaptureCard";
 import { buildAffiliateUrl } from "@/lib/affiliate/buildAffiliateUrl";
 import { routes } from "@/lib/ferry/mockData";
@@ -49,9 +50,13 @@ export default async function BateauRoutePage({ params }: PageProps) {
   const from = getPort(route.fromPortId);
   const to = getPort(route.toPortId);
   const isShortCrossing = route.averageDurationHours <= 3;
+  const countryPage = to?.country === "Maroc" ? "/bateau-maroc" : to?.country === "Algerie" ? "/bateau-algerie" : "/bateau-tunisie";
 
   return (
     <div className="container-page py-8 md:py-12">
+      <div className="-mt-8 mb-6 md:-mt-12">
+        <Breadcrumbs items={[{ label: "Accueil", href: "/" }, { label: `Bateau ${to?.country}`, href: countryPage }, { label }]} />
+      </div>
       <article className="mx-auto max-w-5xl space-y-10">
         <header className="rounded-lg border border-ink/10 bg-white p-6 shadow-soft md:p-8">
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-petrol">

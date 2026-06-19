@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FAQ } from "@/components/FAQ";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { LeadCaptureCard } from "@/components/LeadCaptureCard";
 import { getGuide, guideArticles } from "@/lib/guides";
 import { absoluteUrl, canonical } from "@/lib/seo";
@@ -39,6 +40,9 @@ export default async function GuideArticlePage({ params }: PageProps) {
 
   return (
     <div className="container-page py-10 md:py-14">
+      <div className="-mt-10 mb-7 md:-mt-14">
+        <Breadcrumbs items={[{ label: "Accueil", href: "/" }, { label: "Guides et conseils", href: "/guides" }, { label: guide.h1 }]} />
+      </div>
       <article className="mx-auto max-w-4xl space-y-10">
         <header>
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-petrol">{guide.tag}</p>

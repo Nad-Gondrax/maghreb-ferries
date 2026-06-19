@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, CarFront, MapPinned, UsersRound } from "lucide-react";
 import { FAQ } from "@/components/FAQ";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { LeadCaptureCard } from "@/components/LeadCaptureCard";
 import { RouteCard } from "@/components/routes/RouteCard";
 import { SearchBox } from "@/components/search/SearchBox";
@@ -22,6 +23,9 @@ export function CountryLandingPage({ page }: { page: CountryLandingPageData }) {
 
   return (
     <div>
+      <div className="container-page">
+        <Breadcrumbs items={[{ label: "Accueil", href: "/" }, { label: `Bateau ${page.country}` }]} />
+      </div>
       <section className="container-page grid gap-8 py-10 md:py-14 lg:grid-cols-[1fr_0.82fr] lg:items-center">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-petrol">
